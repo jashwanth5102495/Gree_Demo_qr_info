@@ -39,7 +39,12 @@ export default function GreenGram() {
           </div>
           <div>
             <h2 className="font-semibold text-white uppercase tracking-widest mb-1">3. Composition</h2>
-            <p>Not specified</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Humic Acid percent by weight minimum: 10.0</li>
+              <li>Fulvic Acid percent by weight minimum: 2.5</li>
+              <li>pH (10% aqueous solution): 12–14</li>
+              <li>Specific Gravity: 1.0–1.20</li>
+            </ul>
           </div>
           <div>
             <h2 className="font-semibold text-white uppercase tracking-widest mb-1">4. Crops</h2>
