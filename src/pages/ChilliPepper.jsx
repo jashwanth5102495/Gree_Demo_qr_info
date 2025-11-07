@@ -39,7 +39,11 @@ export default function ChilliPepper() {
           </div>
           <div>
             <h2 className="font-semibold text-white uppercase tracking-widest mb-1">3. Composition</h2>
-            <p>Not specified</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Humic Acid percent by weight minimum: 5</li>
+              <li>pH (1% aqueous solution): 4.0–5.0</li>
+              <li>Specific Gravity: 1.0</li>
+            </ul>
           </div>
           <div>
             <h2 className="font-semibold text-white uppercase tracking-widest mb-1">4. Crops</h2>
