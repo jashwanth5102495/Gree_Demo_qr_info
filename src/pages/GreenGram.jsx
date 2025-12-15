@@ -12,7 +12,7 @@ export default function GreenGram() {
       <ProductCard
         brandName=""
         companyName="Green Plant Technologies"
-        logoSrc="/b.mp4"
+        logoSrc="/vib.mp4"
         productName=""
         gazette="S.O.3922(E), Dated 12-9-2024"
         title="Potassium humate 49% (Powder)"

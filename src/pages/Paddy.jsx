@@ -15,7 +15,7 @@ export default function Paddy() {
       <ProductCard
         brandName=""
         companyName="Green Plant Technologies"
-        logoSrc="/asd.mp4"
+        logoSrc="/vib.mp4"
         productName=""
         gazette="S.O.3922(E), Dated 12-9-2024"
         title="Humates (12.5%) liquid"
