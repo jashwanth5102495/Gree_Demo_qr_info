@@ -15,7 +15,7 @@ export default function GreenGram() {
         logoSrc="/vib.mp4"
         productName=""
         gazette="S.O.3922(E), Dated 12-9-2024"
-        title="Potassium humate 49% (Powder)"
+        title="Humates 12.5%"
         composition={[
           'Humic Acid percent by weight minimum: 10.0',
           'Fulvic Acid percent by weight minimum: 2.5',
