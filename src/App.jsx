@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import BackgroundVideo from './components/BackgroundVideo';
+import IntroOverlay from './components/IntroOverlay';
 
 export default function App() {
   return (
     <div className="relative flex items-center justify-center min-h-screen px-3 sm:px-4 pt-24 sm:pt-28 pb-8 sm:pb-10">
+      <BackgroundVideo />
       {/* Dark overlay to improve text visibility */}
       <div className="fixed inset-0 -z-20 bg-black/35 pointer-events-none"></div>
       {/* Animated gradient overlay behind the blurred background */}
@@ -32,6 +35,7 @@ export default function App() {
           Green Plant Technologies
         </h1>
         {/* Optional glowing underline */}
+        <IntroOverlay />
         
 
         <div className="space-y-5 sm:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed text-white">
