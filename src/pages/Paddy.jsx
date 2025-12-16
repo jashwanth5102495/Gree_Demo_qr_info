@@ -18,13 +18,14 @@ export default function Paddy() {
         logoSrc="/vib.mp4"
         productName=""
         gazette="S.O.3922(E), Dated 12-9-2024"
-        title="Humates (12.5%) liquid"
+        title="Sea Weed Extract of Sargassum tenerrimum 2% (Granular)"
         composition={[
-          'Humic Acid per cent by weight, minimum: 21',
-          'pH (1% aqueous solution): 6.0 – 8.0',
+          'Alginic Acid percent.by weight minimum : 0.2',
+          'pH (1:2 aqueous solution) : 6.0-8.5',
+          'Bulk density (g/cc) : 0.95-1.1',
         ]}
         crops="Paddy"
-        dosage="One soil application at 1 kg/ha"
+        dosage="One soil application at 12.5 kg/ha"
       />
     </div>
   );
