@@ -2,106 +2,199 @@ import { motion } from 'framer-motion';
 
 export default function ProductCard({
   brandName,
-  logoSrc,
+  logoSrc = '/vib.mp4',
   companyName,
   productName,
   gazette,
   title,
+  category,
   composition,
-  crops = '—',
-  dosage = '—',
+  crops,
+  dosage,
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative z-10 max-w-xs sm:max-w-sm md:max-w-md w-full"
+      className="relative z-10 max-w-xs sm:max-w-sm md:max-w-md w-full mx-auto pb-12"
     >
-      {/* Outer card mimicking screenshot */}
-      <div className="glass-card rounded-3xl bg-white/20 backdrop-blur-xl border border-white/40 shadow-xl-soft overflow-hidden">
-        {/* Header brand title */}
-        {brandName ? (
-          <div className="px-6 sm:px-8 pt-4 sm:pt-5">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black/90">
-              {brandName}
-            </h1>
-          </div>
-        ) : null}
-
-        {/* Logo container */}
-        <div className="px-6 sm:px-8 pb-4">
-          <div className="mt-4 rounded-2xl bg-white/30 border border-white/40 p-3 flex flex-col items-center">
-            {companyName && (
-              <div className="w-full text-center text-base sm:text-lg font-semibold text-black/80 mb-2">
-                {companyName}
-              </div>
-            )}
-            {logoSrc?.endsWith('.mp4') ? (
-              <video
-                src={logoSrc}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-32 sm:h-40 md:h-44 object-contain rounded-xl"
-              />
-            ) : (
-              <img
-                src={logoSrc}
-                alt="Logo"
-                className="w-full h-32 sm:h-40 md:h-44 object-contain"
-              />
-            )}
-          </div>
+      {/* Top Header Card (Video / Logo Container) */}
+      <div className="rounded-3xl bg-black/75 border border-white/25 shadow-2xl p-4 sm:p-5 overflow-hidden backdrop-blur-xl mb-4">
+        {brandName && (
+          <h1 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-2">
+            {brandName}
+          </h1>
+        )}
+        {companyName && (
+          <p className="text-sm sm:text-base font-semibold text-white/80 text-center mb-3">
+            {companyName}
+          </p>
+        )}
+        <div className="rounded-2xl overflow-hidden border border-amber-400/30 bg-black/60 shadow-inner flex items-center justify-center">
+          {logoSrc?.endsWith('.mp4') ? (
+            <video
+              src={logoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-40 sm:h-48 md:h-52 object-contain rounded-xl"
+            />
+          ) : (
+            <img
+              src={logoSrc || '/dark-logo.png'}
+              alt="Logo"
+              className="w-full h-40 sm:h-48 md:h-52 object-contain rounded-xl p-2"
+            />
+          )}
         </div>
+      </div>
 
-        {/* Info sections matching screenshot style */}
-        <div className="px-6 sm:px-8 pb-8 space-y-4">
-          {productName && (
-            <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-              <p className="text-sm tracking-wide text-white/80">Product Name</p>
-              <p className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold">{productName}</p>
-            </section>
-          )}
+      {/* Main Section Header */}
+      <h2 className="text-center text-white font-bold text-lg sm:text-xl tracking-wide my-4 drop-shadow-md">
+        Bio-Stimulant Registration Details
+      </h2>
 
-          {gazette && (
-            <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-              <p className="text-sm tracking-wide text-white/80">1. Gazette Notification</p>
-              <p className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold">{gazette}</p>
-            </section>
-          )}
+      {/* Individual Glass Section Cards */}
+      <div className="space-y-3 sm:space-y-4">
+        {/* Product Name Card */}
+        {productName && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-lime-400">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8m0 0C9.5 13 6 10.5 6 6a6 6 0 0112 0c0 4.5-3.5 7-6 7z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Product Name:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {productName}
+              </p>
+            </div>
+          </div>
+        )}
 
-          {title && (
-            <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-              <p className="text-sm tracking-wide text-white/80">2. Title of Bio Stimulant</p>
-              <p className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold">{title}</p>
-            </section>
-          )}
+        {/* Gazette Notification Card */}
+        {gazette && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-amber-300">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m-6 4h6" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Gazette Notification:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {gazette}
+              </p>
+            </div>
+          </div>
+        )}
 
-          {composition?.length > 0 && (
-            <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-              <p className="text-sm tracking-wide text-white/80">3. Composition</p>
-              <ul className="mt-2 space-y-2 list-disc pl-5 text-base sm:text-lg">
+        {/* Title of Bio Stimulant Card */}
+        {title && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-sky-300">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.595 15.12a2 2 0 00-1.808.547l-1.5 1.5A2 2 0 003.707 20.62L16.293 8.034a2 2 0 012.828 0l.303.303a2 2 0 010 2.828l-1.5 1.5z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Tittle of Bio Stimulant:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {title}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Category Card */}
+        {category && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-yellow-300">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Category:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {category}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Composition Card */}
+        {composition && composition.length > 0 && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-emerald-400">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide mb-1">
+                Composition:
+              </p>
+              <div className="space-y-1.5 text-sm sm:text-base font-semibold text-white leading-snug">
                 {composition.map((item, idx) => (
-                  <li key={idx}>{item}</li>
+                  <p key={idx} className="break-words">
+                    {item}
+                  </p>
                 ))}
-              </ul>
-            </section>
-          )}
+              </div>
+            </div>
+          </div>
+        )}
 
-          {/* Crops section (always render with placeholder if missing) */}
-          <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-            <p className="text-sm tracking-wide text-white/80">4. Crops</p>
-            <p className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold">{crops}</p>
-          </section>
+        {/* Crops Card */}
+        {crops && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-lime-300">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18m9-9H3" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-4 4-4 8 0 12m0-12c4 4 4 8 0 12" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Crops:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {crops}
+              </p>
+            </div>
+          </div>
+        )}
 
-          {/* Dosage section (always render with placeholder if missing) */}
-          <section className="rounded-2xl bg-black/12 text-white border border-white/25 p-4">
-            <p className="text-sm tracking-wide text-white/80">5. Dosage</p>
-            <p className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold">{dosage}</p>
-          </section>
-        </div>
+        {/* Dosage Card */}
+        {dosage && (
+          <div className="dark-glass-pill rounded-2xl p-4 sm:p-4 flex items-start space-x-3.5 sm:space-x-4">
+            <div className="icon-box-tile shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-teal-300">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.595 15.12a2 2 0 00-1.808.547l-1.5 1.5A2 2 0 003.707 20.62L16.293 8.034a2 2 0 012.828 0l.303.303a2 2 0 010 2.828l-1.5 1.5z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium text-[#C5E1A5] tracking-wide">
+                Dosage:
+              </p>
+              <p className="mt-0.5 text-base sm:text-lg md:text-xl font-bold text-white leading-snug break-words">
+                {dosage}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

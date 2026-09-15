@@ -19,10 +19,13 @@ export default function Hipro() {
         gazette="S.O.3922(E), Dated 12-9-2024"
         title="Potassium Humate 49% (Powder)"
         composition={[
-          'Humic Acid per cent. by weight minimum : 21',
-          'pH (1 % aq solution) : 6.0 - 8.0',
+          '(i) Potassium humate (Source: Leonardite) per cent. by weight, minimum : 49',
+          '(ii) Silwet power (adjuvant) per cent. by weight, maximum : 0.5',
+          '(iii) Carboxymethyl cellulose per cent. by weight, maximum : 1.0',
+          '(iv) Maltodextrin powder per cent. by weight : QS',
+          '(v) Total (per cent.) : 100',
         ]}
-        crops="Paddy"
+        crops="Paddy, Tomato"
         dosage="One soil application at 1 kg/ha"
       />
     </div>
